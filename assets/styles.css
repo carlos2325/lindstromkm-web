@@ -1356,3 +1356,100 @@ body.is-rtl .list li {
     transform: none;
   }
 }
+
+/* --- Selector de idioma --- */
+.lang-switch {
+  position: relative;
+  margin-left: 8px;
+}
+
+.lang-switch__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.lang-switch__toggle:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.lang-switch__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 40;
+}
+
+.lang-switch__menu[hidden] {
+  display: none;
+}
+
+.lang-switch__menu a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.lang-switch__menu a:hover,
+.lang-switch__menu a.is-active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Tipografía e idiomas RTL --- */
+html[lang="zh"] body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", var(--sans);
+}
+
+html[lang="ar"] body {
+  font-family: "Segoe UI", Tahoma, "Geeza Pro", "Noto Sans Arabic", var(--sans);
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .nav,
+[dir="rtl"] .topbar__row,
+[dir="rtl"] .company-hero__actions,
+[dir="rtl"] .hero__actions,
+[dir="rtl"] .project-card__actions,
+[dir="rtl"] .company-hero__subhead,
+[dir="rtl"] .footer__row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-switch {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .lang-switch__menu {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .section > p,
+[dir="rtl"] .card p,
+[dir="rtl"] .list li {
+  text-align: right;
+}

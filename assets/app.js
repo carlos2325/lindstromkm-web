@@ -32,9 +32,6 @@ if ('IntersectionObserver' in window) {
   }
 }
 
-const translations = window.__translations;
-const translatableNodes = document.querySelectorAll('[data-i18n]');
-const languageButtons = document.querySelectorAll('[data-set-lang]');
 const optionGroups = document.querySelectorAll('[data-option-group]');
 const contactForms = document.querySelectorAll('[data-contact-form]');
 
@@ -58,6 +55,11 @@ const formMessages = {
     empty: 'اختر خدمة وأكمل الحقول المطلوبة.',
     success: 'تم تجهيز رسالة البريد بالخدمة المحددة.',
     serviceFallback: 'استفسار عام'
+  },
+  zh: {
+    empty: '请选择一项服务并填写所有必填字段。',
+    success: '完成。邮件草稿已按所选服务准备好。',
+    serviceFallback: '一般咨询'
   }
 };
 
@@ -145,60 +147,32 @@ for (const form of contactForms) {
   });
 }
 
-if (translations && translatableNodes.length > 0 && languageButtons.length > 0) {
-  const storageKey = `site-lang-${document.body.dataset.page || 'default'}`;
-  const availableLanguages = new Set(Object.keys(translations));
+const langSwitch = document.querySelector('[data-lang-switch]');
 
-  function applyLanguage(lang) {
-    const selectedLanguage = availableLanguages.has(lang) ? lang : 'es';
-    const selectedDictionary = translations[selectedLanguage] || translations.es || {};
+if (langSwitch) {
+  const toggle = langSwitch.querySelector('[data-lang-toggle]');
+  const menu = langSwitch.querySelector('[data-lang-menu]');
 
-    document.documentElement.lang = selectedLanguage;
-    document.documentElement.dir = selectedLanguage === 'ar' ? 'rtl' : 'ltr';
-    document.body.classList.toggle('is-rtl', selectedLanguage === 'ar');
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.hidden;
+    menu.hidden = isOpen;
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
 
-    for (const node of translatableNodes) {
-      const key = node.dataset.i18n;
-      const value = selectedDictionary[key];
+  document.addEventListener('click', (event) => {
+    if (!langSwitch.contains(event.target)) {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
 
-      if (typeof value === 'string') {
-        node.innerHTML = value;
+  for (const link of langSwitch.querySelectorAll('[data-lang-set]')) {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('lkm_lang', link.dataset.langSet);
+      } catch {
+        // Ignorado si el navegador no permite persistencia.
       }
-    }
-
-    for (const button of languageButtons) {
-      const isActive = button.dataset.setLang === selectedLanguage;
-      button.classList.toggle('is-active', isActive);
-      button.setAttribute('aria-pressed', String(isActive));
-    }
-
-    for (const groupNode of optionGroups) {
-      const activeCard = groupNode.querySelector('[data-option-card].is-active');
-      if (activeCard) {
-        updateOptionSelection(groupNode, activeCard);
-      }
-    }
-
-    try {
-      localStorage.setItem(storageKey, selectedLanguage);
-    } catch {
-      // Ignorado si el navegador no permite persistencia.
-    }
-  }
-
-  for (const button of languageButtons) {
-    button.addEventListener('click', () => {
-      applyLanguage(button.dataset.setLang);
     });
   }
-
-  let preferredLanguage = 'es';
-
-  try {
-    preferredLanguage = localStorage.getItem(storageKey) || 'es';
-  } catch {
-    preferredLanguage = 'es';
-  }
-
-  applyLanguage(preferredLanguage);
 }

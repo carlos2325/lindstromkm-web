@@ -11,7 +11,29 @@
     <link rel="icon" type="image/svg+xml" href="assets/brand/lindstrom/favicon.svg" />
     <link rel="apple-touch-icon" href="assets/brand/lindstrom/symbol.svg" />
     <meta name="theme-color" content="#0B1320" />
+    <link rel="alternate" hreflang="es" href="https://lindstromkm.com/" />
+    <link rel="alternate" hreflang="en" href="https://lindstromkm.com/en/" />
+    <link rel="alternate" hreflang="fr" href="https://lindstromkm.com/fr/" />
+    <link rel="alternate" hreflang="ar" href="https://lindstromkm.com/ar/" />
+    <link rel="alternate" hreflang="zh" href="https://lindstromkm.com/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://lindstromkm.com/" />
     <link rel="stylesheet" href="assets/styles.css" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem('lkm_lang')) { return; }
+          var nav = ((navigator.language || navigator.userLanguage || 'es') + '').toLowerCase();
+          if (nav.indexOf('es') === 0) { return; }
+          var target = 'en';
+          if (nav.indexOf('fr') === 0) { target = 'fr'; }
+          else if (nav.indexOf('ar') === 0) { target = 'ar'; }
+          else if (nav.indexOf('zh') === 0) { target = 'zh'; }
+          var path = window.location.pathname;
+          var newPath = (path === '/' || path === '/index.html') ? ('/' + target + '/') : ('/' + target + path);
+          window.location.replace(newPath);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body data-page="lindstrom">
     <header class="topbar">
@@ -26,6 +48,18 @@
           <a href="#contacto" data-i18n="navContact">Contacto</a>
           <a href="#cobertura">Cobertura</a>
         </nav>
+        <div class="lang-switch" data-lang-switch>
+          <button type="button" class="lang-switch__toggle" aria-expanded="false" data-lang-toggle>
+            <span aria-hidden="true">🌐</span> ES
+          </button>
+          <div class="lang-switch__menu" data-lang-menu hidden>
+            <a href="/" data-lang-set="es" class="is-active">Español</a>
+            <a href="/en/" data-lang-set="en">English</a>
+            <a href="/fr/" data-lang-set="fr">Français</a>
+            <a href="/ar/" data-lang-set="ar">العربية</a>
+            <a href="/zh/" data-lang-set="zh">中文</a>
+          </div>
+        </div>
       </div>
     </header>
 
