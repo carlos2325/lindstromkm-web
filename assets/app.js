@@ -163,6 +163,26 @@ for (const form of contactForms) {
 }
 
 document.addEventListener('click', (event) => {
+  const navToggle = event.target.closest('[data-nav-toggle]');
+  const navCollapse = document.querySelector('[data-nav-collapse]');
+
+  if (navToggle && navCollapse) {
+    const isOpen = navCollapse.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    return;
+  }
+
+  if (navCollapse && navCollapse.classList.contains('is-open')) {
+    const navLink = event.target.closest('[data-nav-collapse] .nav a');
+    if (navLink || (!navCollapse.contains(event.target) && !event.target.closest('[data-nav-toggle]'))) {
+      navCollapse.classList.remove('is-open');
+      const toggleBtn = document.querySelector('[data-nav-toggle]');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
   const langSwitch = document.querySelector('[data-lang-switch]');
   if (!langSwitch) {
     return;
