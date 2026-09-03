@@ -162,32 +162,34 @@ for (const form of contactForms) {
   });
 }
 
-const langSwitch = document.querySelector('[data-lang-switch]');
+document.addEventListener('click', (event) => {
+  const langSwitch = document.querySelector('[data-lang-switch]');
+  if (!langSwitch) {
+    return;
+  }
 
-if (langSwitch) {
   const toggle = langSwitch.querySelector('[data-lang-toggle]');
   const menu = langSwitch.querySelector('[data-lang-menu]');
+  const setLink = event.target.closest('[data-lang-set]');
 
-  toggle.addEventListener('click', () => {
+  if (setLink) {
+    try {
+      localStorage.setItem('lkm_lang', setLink.dataset.langSet);
+    } catch {
+      // Ignorado si el navegador no permite persistencia.
+    }
+    return;
+  }
+
+  if (event.target.closest('[data-lang-toggle]')) {
     const isOpen = !menu.hidden;
     menu.hidden = isOpen;
     toggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  document.addEventListener('click', (event) => {
-    if (!langSwitch.contains(event.target)) {
-      menu.hidden = true;
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  for (const link of langSwitch.querySelectorAll('[data-lang-set]')) {
-    link.addEventListener('click', () => {
-      try {
-        localStorage.setItem('lkm_lang', link.dataset.langSet);
-      } catch {
-        // Ignorado si el navegador no permite persistencia.
-      }
-    });
+    return;
   }
-}
+
+  if (!langSwitch.contains(event.target)) {
+    menu.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+});
