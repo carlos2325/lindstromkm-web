@@ -39,27 +39,42 @@ const formMessages = {
   es: {
     empty: 'Selecciona una opción y completa los campos obligatorios.',
     success: 'Listo. El correo queda preparado con el servicio seleccionado.',
-    serviceFallback: 'Consulta general'
+    serviceFallback: 'Consulta general',
+    labelCompany: 'Empresa',
+    labelEmail: 'Email',
+    labelService: 'Servicio'
   },
   en: {
     empty: 'Choose an option and complete the required fields.',
     success: 'Done. The email draft is ready with the selected service.',
-    serviceFallback: 'General enquiry'
+    serviceFallback: 'General enquiry',
+    labelCompany: 'Company',
+    labelEmail: 'Email',
+    labelService: 'Service'
   },
   fr: {
     empty: 'Choisissez une option et complétez les champs obligatoires.',
     success: "C'est prêt. Le brouillon d’email est préparé avec le service choisi.",
-    serviceFallback: 'Demande générale'
+    serviceFallback: 'Demande générale',
+    labelCompany: 'Entreprise',
+    labelEmail: 'Email',
+    labelService: 'Service'
   },
   ar: {
     empty: 'اختر خدمة وأكمل الحقول المطلوبة.',
     success: 'تم تجهيز رسالة البريد بالخدمة المحددة.',
-    serviceFallback: 'استفسار عام'
+    serviceFallback: 'استفسار عام',
+    labelCompany: 'الشركة',
+    labelEmail: 'البريد الإلكتروني',
+    labelService: 'الخدمة'
   },
   zh: {
     empty: '请选择一项服务并填写所有必填字段。',
     success: '完成。邮件草稿已按所选服务准备好。',
-    serviceFallback: '一般咨询'
+    serviceFallback: '一般咨询',
+    labelCompany: '公司',
+    labelEmail: '电子邮件',
+    labelService: '服务'
   }
 };
 
@@ -128,9 +143,9 @@ for (const form of contactForms) {
     const subject = encodeURIComponent(`[Web] ${selectedService} · ${company}`);
     const body = encodeURIComponent(
       [
-        `Empresa: ${company}`,
-        `Email: ${email}`,
-        `Servicio: ${selectedService}`,
+        `${messages.labelCompany}: ${company}`,
+        `${messages.labelEmail}: ${email}`,
+        `${messages.labelService}: ${selectedService}`,
         '',
         message
       ].join('\n')
