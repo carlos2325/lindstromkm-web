@@ -4,6 +4,34 @@ for (const node of yearNodes) {
   node.textContent = new Date().getFullYear();
 }
 
+const revealTargets = document.querySelectorAll('main > section');
+
+for (const el of revealTargets) {
+  el.classList.add('reveal');
+}
+
+if ('IntersectionObserver' in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      }
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+  );
+
+  for (const el of revealTargets) {
+    revealObserver.observe(el);
+  }
+} else {
+  for (const el of revealTargets) {
+    el.classList.add('is-visible');
+  }
+}
+
 const translations = window.__translations;
 const translatableNodes = document.querySelectorAll('[data-i18n]');
 const languageButtons = document.querySelectorAll('[data-set-lang]');

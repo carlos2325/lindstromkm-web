@@ -1281,3 +1281,78 @@ body.is-rtl .list li {
     flex-direction: column;
   }
 }
+
+/* --- Micro-interacciones: vida sin ruido --- */
+.card,
+.panel,
+.option-card {
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.card:hover,
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.hero-media {
+  will-change: transform;
+}
+
+.hero-media img {
+  transform: scale(1);
+  animation: heroKenBurns 22s ease-in-out infinite alternate;
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.tag {
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media img {
+    animation: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card,
+  .panel,
+  .option-card,
+  .tag {
+    transition: none;
+  }
+
+  .card:hover,
+  .panel:hover {
+    transform: none;
+  }
+}
