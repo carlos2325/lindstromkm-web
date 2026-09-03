@@ -1,0 +1,23 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lkm-icon-title lkm-icon-desc">
+  <title id="lkm-icon-title">Isotipo 19 — LINDSTROM KM</title>
+  <desc id="lkm-icon-desc">App icon de LINDSTROM KM (Design 19): escudo con broca de perforación submarina y estratos oceánicos.</desc>
+  <rect width="256" height="256" rx="64" fill="#0B1320"/>
+  <rect x="24" y="24" width="208" height="208" rx="48" fill="url(#lkm-panel)" stroke="#1E3A5F" stroke-width="2"/>
+  <g transform="translate(28 28) scale(2.0)">
+    <path d="M50 95 L15 72 V12 L50 20 L85 12 V72 Z" fill="#0F1F33" stroke="#C87A3E" stroke-width="2.5"/>
+    <path d="M18 52 Q35 58 50 52 T82 52" stroke="#E0A96D" stroke-width="2.5" fill="none"/>
+    <path d="M18 63 Q35 69 50 63 T82 63" stroke="#64748B" stroke-width="2.5" fill="none"/>
+    <path d="M22 75 Q35 80 50 75 T78 75" stroke="#1E3A5F" stroke-width="2" fill="none"/>
+    <path d="M42 22 H58 V36 L50 48 L42 36 Z" fill="#C87A3E"/>
+    <path d="M47 48 H53 V84 L50 89 L47 84 Z" fill="#CBD5E1"/>
+    <line x1="47" y1="56" x2="53" y2="59" stroke="#0B1320" stroke-width="1.8"/>
+    <line x1="47" y1="67" x2="53" y2="70" stroke="#0B1320" stroke-width="1.8"/>
+    <line x1="47" y1="78" x2="53" y2="81" stroke="#0B1320" stroke-width="1.8"/>
+  </g>
+  <defs>
+    <linearGradient id="lkm-panel" x1="128" y1="24" x2="128" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1F33"/>
+      <stop offset="1" stop-color="#0B1320"/>
+    </linearGradient>
+  </defs>
+</svg>

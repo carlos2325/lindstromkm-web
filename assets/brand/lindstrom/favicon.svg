@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-label="LINDSTROM KM">
+  <rect width="64" height="64" rx="12" fill="#0B1320"/>
+  <g transform="translate(6.4 6.4) scale(0.512)">
+    <path d="M50 95 L15 72 V12 L50 20 L85 12 V72 Z" fill="#0F1F33" stroke="#C87A3E" stroke-width="3.5"/>
+    <path d="M18 52 Q35 58 50 52 T82 52" stroke="#E0A96D" stroke-width="3" fill="none"/>
+    <path d="M18 63 Q35 69 50 63 T82 63" stroke="#64748B" stroke-width="3" fill="none"/>
+    <path d="M42 22 H58 V36 L50 48 L42 36 Z" fill="#C87A3E"/>
+    <path d="M47 48 H53 V84 L50 89 L47 84 Z" fill="#CBD5E1"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustración abstracta de energía y conexión de ITEL2">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1420"/>
+      <stop offset="0.55" stop-color="#0A1016"/>
+      <stop offset="1" stop-color="#08313a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#00A8B8" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#00A8B8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="stream" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00A8B8" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#33C6D2" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#00A8B8" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="dots" width="46" height="46" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.6" fill="#ffffff" fill-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#dots)"/>
+
+  <!-- halo -->
+  <circle cx="470" cy="360" r="360" fill="url(#glow)" opacity="0.28"/>
+
+  <!-- streams (conexión) -->
+  <g fill="none" stroke="url(#stream)" stroke-width="2.5">
+    <path d="M-40,250 C 220,140 360,470 640,360 S 900,520 860,660"/>
+    <path d="M-40,520 C 260,470 380,720 660,600 S 900,700 880,840" opacity="0.75"/>
+    <path d="M120,-40 C 220,240 520,220 560,520 S 420,860 640,1040" opacity="0.6"/>
+  </g>
+
+  <!-- nodos -->
+  <g>
+    <g><circle cx="150" cy="250" r="7" fill="#33C6D2"/><circle cx="150" cy="250" r="20" fill="url(#glow)"/></g>
+    <g><circle cx="560" cy="520" r="9" fill="#00A8B8"/><circle cx="560" cy="520" r="26" fill="url(#glow)"/></g>
+    <g><circle cx="660" cy="360" r="6" fill="#7fe9f0"/><circle cx="660" cy="360" r="18" fill="url(#glow)"/></g>
+    <g><circle cx="300" cy="640" r="6" fill="#33C6D2"/><circle cx="300" cy="640" r="16" fill="url(#glow)"/></g>
+    <g><circle cx="640" cy="760" r="5" fill="#7fe9f0"/><circle cx="640" cy="760" r="14" fill="url(#glow)"/></g>
+  </g>
+
+  <!-- viñeta inferior izquierda para el pie de foto -->
+  <rect y="620" width="800" height="380" fill="#070c12" opacity="0.0"/>
+  <linearGradient id="vig" x1="0" y1="1" x2="0.4" y2="0.4">
+    <stop offset="0" stop-color="#070c12" stop-opacity="0.85"/>
+    <stop offset="1" stop-color="#070c12" stop-opacity="0"/>
+  </linearGradient>
+  <rect width="800" height="1000" fill="url(#vig)"/>
+</svg>

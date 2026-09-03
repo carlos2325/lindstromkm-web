@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" fill="none" role="img" aria-labelledby="lkm-sym-title lkm-sym-desc">
+  <title id="lkm-sym-title">Isotipo 19 — LINDSTROM KM</title>
+  <desc id="lkm-sym-desc">Escudo submarino con broca de perforación y estratos geológicos (Design 19).</desc>
+  <path d="M50 95 L15 72 V12 L50 20 L85 12 V72 Z" fill="#0F1F33" stroke="#C87A3E" stroke-width="2.5"/>
+  <path d="M18 52 Q35 58 50 52 T82 52" stroke="#E0A96D" stroke-width="2.5" fill="none"/>
+  <path d="M18 63 Q35 69 50 63 T82 63" stroke="#64748B" stroke-width="2.5" fill="none"/>
+  <path d="M22 75 Q35 80 50 75 T78 75" stroke="#1E3A5F" stroke-width="2" fill="none"/>
+  <path d="M42 22 H58 V36 L50 48 L42 36 Z" fill="#C87A3E"/>
+  <path d="M47 48 H53 V84 L50 89 L47 84 Z" fill="#CBD5E1"/>
+  <line x1="47" y1="56" x2="53" y2="59" stroke="#0B1320" stroke-width="1.8"/>
+  <line x1="47" y1="67" x2="53" y2="70" stroke="#0B1320" stroke-width="1.8"/>
+  <line x1="47" y1="78" x2="53" y2="81" stroke="#0B1320" stroke-width="1.8"/>
+</svg>
