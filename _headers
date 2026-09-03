@@ -1,0 +1,8 @@
+/assets/app.js
+  Cache-Control: no-cache, must-revalidate
+
+/assets/styles.css
+  Cache-Control: no-cache, must-revalidate
+
+/*
+  X-Content-Type-Options: nosniff
