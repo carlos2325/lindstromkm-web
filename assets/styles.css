@@ -1133,6 +1133,10 @@ body[data-page="lindstrom"] .field textarea:focus {
   pointer-events: none;
 }
 
+.card {
+  position: relative;
+}
+
 .card__icon {
   width: 46px;
   height: 46px;
@@ -1148,6 +1152,13 @@ body[data-page="lindstrom"] .field textarea:focus {
 .card__icon svg {
   width: 24px;
   height: 24px;
+}
+
+.card__icon + .card__label {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  margin-bottom: 0;
 }
 
 .process__step {
